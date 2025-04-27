@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natural Interview Mentor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Natural Interview Mentor</h1>
+    <p>Answer each question naturally. Feedback and scores will be provided at the end. Interrupt me by speaking.</p>
+    <button id="startBtn">Start Speaking</button>
+    <button id="stopBtn" disabled>Stop Speaking</button>
+    <button id="restartBtn" disabled>Restart Interview</button>
+    <div id="status">Status: Ready</div>
+    <div id="volumeMeter"><div id="volumeLevel"></div></div>
+    <div id="transcript">Current Question: {{ question }}</div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
