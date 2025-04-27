@@ -2,8 +2,17 @@ body {
     font-family: Arial, sans-serif;
     margin: 20px;
     text-align: center;
-    background-color: #f4f4f4;
+    background: linear-gradient(45deg, #a1c4fd, #c2e9fb, #d4fc79, #96e6a1);
+    background-size: 400%;
+    animation: gradientBG 15s ease infinite;
 }
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 button {
     padding: 10px 20px;
     margin: 10px;
@@ -13,29 +22,43 @@ button {
     color: white;
     border: none;
     border-radius: 5px;
+    transition: transform 0.2s, background-color 0.2s;
 }
+
 button:hover {
     background-color: #0056b3;
+    transform: scale(1.1);
 }
+
 button:disabled {
     background-color: #6c757d;
     cursor: not-allowed;
+    transform: none;
 }
+
 #status {
     margin-top: 20px;
     font-size: 18px;
     color: #333;
 }
+
 #transcript {
     margin-top: 20px;
-    padding: 10px;
-    background-color: white;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
     text-align: left;
     max-height: 400px;
     overflow-y: auto;
+    animation: slideIn 0.5s ease-out;
 }
+
+@keyframes slideIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
 #volumeMeter {
     margin-top: 10px;
     width: 200px;
@@ -44,10 +67,94 @@ button:disabled {
     border-radius: 10px;
     overflow: hidden;
     display: inline-block;
+    position: relative;
 }
+
 #volumeLevel {
     height: 100%;
-    background-color: #28a745;
+    background: linear-gradient(to right, #ff6b6b, #4ecdc4);
     width: 0;
     transition: width 0.1s;
+}
+
+#micIcon {
+    display: none;
+    font-size: 40px;
+    margin: 10px auto;
+    color: #ff6b6b;
+    animation: pulse 1.5s infinite;
+}
+
+#micIcon.listening {
+    display: block;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.advice-section {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #e9f7ef;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.advice-section h3 {
+    color: #28a745;
+    margin-bottom: 10px;
+}
+
+.advice-section ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.advice-section li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.advice-section li::before {
+    content: "🌟";
+    margin-right: 10px;
+}
+
+#history {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    text-align: left;
+}
+
+#historyList {
+    list-style-type: none;
+    padding: 0;
+}
+
+#historyList li {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+#historyList li::before {
+    content: "📜";
+    margin-right: 10px;
+}
+
+#historyList button {
+    margin-left: 10px;
+    background-color: #17a2b8;
+}
+
+#historyList button:hover {
+    background-color: #138496;
+    transform: scale(1.1);
 }

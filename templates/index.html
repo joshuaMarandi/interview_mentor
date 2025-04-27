@@ -12,9 +12,14 @@
     <button id="startBtn">Start Speaking</button>
     <button id="stopBtn" disabled>Stop Speaking</button>
     <button id="restartBtn" disabled>Restart Interview</button>
+    <button id="historyBtn">View History</button>
     <div id="status">Status: Ready</div>
     <div id="volumeMeter"><div id="volumeLevel"></div></div>
     <div id="transcript">Current Question: {{ question }}</div>
+    <div id="history" style="display: none;">
+        <h2>Past Interviews</h2>
+        <ul id="historyList"></ul>
+    </div>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>

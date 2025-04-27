@@ -1,12 +1,7 @@
 import pandas as pd
 
-# Define a sample of 20 unique questions
+# Define 20 unique questions (excluding "What is your name?")
 questions = [
-    {
-        'question': 'Tell me about yourself.',
-        'keywords': 'background,experience,skills,education,career',
-        'example': "For example, you could say: 'I have a background in software engineering with three years of experience building web applications, and I hold a degree in computer science. I’m passionate about solving complex problems and continuously improving my skills.'"
-    },
     {
         'question': 'What is your greatest strength?',
         'keywords': 'strength,skill,ability,expertise,talent',
@@ -102,12 +97,16 @@ questions = [
         'keywords': 'conflict,resolve,communication',
         'example': "For example, you could say: 'I resolve conflicts through open communication, like when I mediated a team disagreement to align on project goals.'"
     },
+    {
+        'question': 'What are your career goals?',
+        'keywords': 'career,goals,aspire,plan',
+        'example': "For example, you could say: 'My career goal is to become a lead data scientist, leveraging my skills to drive innovation, as I’m currently doing by contributing to open-source projects.'"
+    },
 ]
 
-# Simulate 200+ questions (for presentation; replace with unique questions for production)
+# Generate 200+ questions without variations
 for i in range(180):
     base_question = questions[i % len(questions)].copy()
-    base_question['question'] = f"{base_question['question']} (Variation {i+1})"
     questions.append(base_question)
 
 # Save to CSV
